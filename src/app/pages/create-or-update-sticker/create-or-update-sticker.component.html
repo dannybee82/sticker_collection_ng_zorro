@@ -1,0 +1,38 @@
+<form nz-form [formGroup]="stickerForm" (ngSubmit)="submitForm()" class="sticker-form">
+    <div nz-flex [nzVertical]="true" [nzJustify]="'start'" [nzAlign]="'start'">
+      <h3>{{ this.isUpdateMode() ? 'Update Sticker' : 'Create New Sticker' }}</h3>
+      <nz-form-item>
+          <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="email">Title</nz-form-label>
+          <nz-form-control [nzSm]="14" [nzXs]="24" nzErrorTip="The Title is not valid">
+              <input nz-input formControlName="title" id="title" />
+          </nz-form-control>
+      </nz-form-item>
+
+      @if(this.isUpdateMode()) {
+        <div class="mb-1">
+          <h3>Current image:</h3>
+          <img [src]="this.orignalImage" class="thumbnail">
+        </div>
+      }
+
+      <nz-upload
+        nzListType="picture-card"
+        [(nzFileList)]="fileList"
+        [nzShowButton]="fileList.length < 1"
+        [nzPreview]="handlePreview"
+        [nzAccept]="'image/jpg,image/png,image/jpeg,image/gif'"
+        [nzCustomRequest]="customUploadRequest"
+      >
+        <div>
+          <nz-icon nzType="plus" />
+          <div style="margin-top: 8px">Open Image</div>
+        </div>
+      </nz-upload>
+
+      <nz-form-item nz-row class="register-area">
+          <nz-form-control [nzSpan]="14" [nzOffset]="6">
+              <button type="submit" nz-button nzType="primary">{{ this.isUpdateMode() ? 'Update' : 'Create' }}</button>
+          </nz-form-control>
+      </nz-form-item>
+    </div>
+</form>

@@ -1,0 +1,20 @@
+<div nz-flex [nzVertical]="false">
+      <div class="flex-item">
+         <button nz-button nzType="dashed" [nzSize]="'large'" [routerLink]="['home']">
+            <nz-icon nzType="home" nzTheme="outline" />
+            Home
+        </button>
+      </div>
+      <div class="flex-item even">
+        <button nz-button nzType="dashed" [nzSize]="'large'" [routerLink]="['all-stickers']">
+            <nz-icon nzType="picture" nzTheme="outline" />
+            All Stickers
+        </button>
+      </div>
+      <div class="flex-item">
+        <button nz-button nzType="dashed" [nzSize]="'large'" [routerLink]="['overview']">
+            <nz-icon nzType="ordered-list" nzTheme="outline" />
+            Overview
+        </button>
+      </div>
+</div>
