@@ -44,7 +44,7 @@ _November 2025:_
 
 \- Added new Stickers.
 
-\- Various small changes.
+\- Various small changes (e.g. increase of font-size overview page).
 
 _October 2025:_
 
