@@ -1,11 +1,13 @@
-@if (this.carouselItems$ | async; as items) {  
-  @if (items.length > 0) {  
-    <nz-carousel class="home-carousel" [nzDotPosition]="'right'" [nzAutoPlay]="true" [nzAutoPlaySpeed]="2500">  
-      @for (item of items; track item.id) {  
-        <div nz-carousel-content>  
-          <img [src]="item.image" [alt]="item.title" [title]="item.title" class="carousel-image" />  
-        </div>  
-      }  
-    </nz-carousel>  
-  }  
-}
+<app-spinner [isLoading]="loading$" [size]="'large'" [altText]="'Loading...'">
+  @if (this.carouselItems$ | async; as items) {  
+    @if (items.length > 0) {  
+      <nz-carousel class="home-carousel" [nzDotPosition]="'right'" [nzAutoPlay]="true" [nzAutoPlaySpeed]="2500">  
+        @for (item of items; track item.id) {  
+          <div nz-carousel-content>  
+            <img [src]="item.image" [alt]="item.title" [title]="item.title" class="carousel-image" />  
+          </div>  
+        }  
+      </nz-carousel>  
+    }  
+  }
+</app-spinner>

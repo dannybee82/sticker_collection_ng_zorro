@@ -9,6 +9,8 @@ This demo shows a 'Sticker Collection' with hard-coded data:
 *   See image in full-screen.
 *   Table at overview page.
 *   Create and Update form.
+*   To top button
+*   Implemented loading Spinner
 
 See the images in the root of this project for examples.
 
@@ -33,6 +35,16 @@ or shorter:
 _ng s --o_
 
 ### **Changelog:**
+
+_November 2025:_
+
+\- Added to top component.
+
+\- Added spinner commponent.
+
+\- Added new Stickers.
+
+\- Various small changes.
 
 _October 2025:_
 

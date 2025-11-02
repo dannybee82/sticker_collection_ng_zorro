@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Sticker } from '../models/sticker/sticker.interface';
-import { Observable, of } from 'rxjs';
+import { delay, Observable, of } from 'rxjs';
 
 const RANDOM_AMOUNT_STICKERS: number = 4;
 
@@ -70,10 +70,22 @@ export class StickerService {
       image: 'stickers/sticker_012.jpg',
       title: 'Jasmine Jolicœur'
     },
+    {
+      id: 13,
+      image: 'stickers/sticker_013.jpg',
+      title: 'Etheral Muse'
+    },
+    {
+      id: 14,
+      image: 'stickers/sticker_014.jpg',
+      title: 'Juliette Wolpertinger'
+    }    
   ];
 
   getAllStickers(): Observable<Sticker[]> {
-    return of(this._allStickers);
+    return of(this._allStickers).pipe(
+      delay(1500)
+    );
   }
 
   getStickerById(id: number): Observable<Sticker | undefined> {
@@ -98,7 +110,9 @@ export class StickerService {
     return new Observable<Sticker[]>(observer => {
       observer.next(arr);
       observer.complete();
-    });
+    }).pipe(
+      delay(1500)
+    );
   }
 
   createSticker(sticker: Sticker): Observable<void> {

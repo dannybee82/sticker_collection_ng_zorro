@@ -1,25 +1,28 @@
-@if(this.allStickers | async; as items) {
-    <div nz-row [nzGutter]="[16, 16]" [nzAlign]="'middle'" [nzJustify]="'space-between'">
-        @for(item of items; track item.id) {
-            <div nz-col
-                [nzXs]="24"   
-                [nzSm]="12"   
-                [nzMd]="8"   
-                [nzLg]="6">  
-                <nz-card nzHoverable 
-                    [nzTitle]="item.title" 
-                    [nzCover]="coverTemplate"
-                    [nzActions]="[actionView]">
-                </nz-card>
-                <ng-template #coverTemplate>
-                    <img [src]="item.image" [alt]="item.title" [title]="item.title" class="image-height">
-                </ng-template>
-                    <ng-template #actionView>
-                        <button nz-button [nzSize]="'large'" nzType="default" nzShape="circle" (click)="showPreview(item)">                            
-                            <nz-icon nzType="fullscreen" nzTheme="outline" />
-                        </button>                        
-                </ng-template>
-            </div>
-        }        
-    </div>
-}
+<app-spinner [isLoading]="loading$" [size]="'large'" [altText]="'Loading...'">
+    @if(this.allStickers | async; as items) {
+        <div nz-row [nzGutter]="[16, 16]" [nzAlign]="'middle'" [nzJustify]="'start'">
+            @for(item of items; track item.id) {
+                <div nz-col
+                    [nzXs]="24"   
+                    [nzSm]="12"   
+                    [nzMd]="8"   
+                    [nzLg]="6">  
+                    <nz-card nzHoverable 
+                        [nzTitle]="item.title" 
+                        [nzCover]="coverTemplate"
+                        [nzActions]="[actionView]">
+                    </nz-card>
+                    <ng-template #coverTemplate>
+                        <img [src]="item.image" [alt]="item.title" [title]="item.title" class="image-height">
+                    </ng-template>
+                        <ng-template #actionView>
+                            <button nz-button [nzSize]="'large'" nzType="default" nzShape="circle" (click)="showPreview(item)">                            
+                                <nz-icon nzType="fullscreen" nzTheme="outline" />
+                            </button>                        
+                    </ng-template>
+                </div>
+            }        
+        </div>
+        <app-to-top />
+    }
+</app-spinner>

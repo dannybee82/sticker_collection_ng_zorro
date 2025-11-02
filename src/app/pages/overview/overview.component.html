@@ -1,50 +1,53 @@
-<div nz-flex [nzVertical]="true">
-    <div class="mb-1">
-        <button nz-button nzType="primary" [nzSize]="'large'" [routerLink]="['/create-or-update-sticker', null]">
-            <nz-icon nzType="plus-square" nzTheme="outline" />
-            Add new Sticker
-        </button>
-    </div>
-    @if(this.allStickers$ | async; as items) {
-        <nz-table
-            #stickerTable
-            [nzData]="items"
-            nzShowPagination 
-            [nzShowSizeChanger]="true"
-            [nzPageSize]="this.pageSize()"  
-            [nzPageSizeOptions]="[1, 5, 10, 25, 50]"
-            [nzFrontPagination]="true"            
-            (nzPageSizeChange)="changePageSize($event)">
-            <thead>
-                <tr>
-                    <th>Thumbnail</th>
-                    <th>Id</th>
-                    <th>Title</th>                
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                @for (item of stickerTable.data; track item.id) {
+<app-spinner [isLoading]="loading$" [size]="'large'" [altText]="'Loading...'">
+    <div nz-flex [nzVertical]="true">
+        <div class="mb-1">
+            <button nz-button nzType="primary" [nzSize]="'large'" [routerLink]="['/create-or-update-sticker', null]">
+                <nz-icon nzType="plus-square" nzTheme="outline" />
+                Add new Sticker
+            </button>
+        </div>
+        @if(this.allStickers$ | async; as items) {
+            <nz-table
+                #stickerTable
+                [nzData]="items"
+                nzShowPagination 
+                [nzShowSizeChanger]="true"
+                [nzPageSize]="this.pageSize()"  
+                [nzPageSizeOptions]="[1, 5, 10, 25, 50]"
+                [nzFrontPagination]="true"            
+                (nzPageSizeChange)="changePageSize($event)">
+                <thead>
                     <tr>
-                        <td>
-                            <img [src]="item.image" [alt]="item.title" [title]="item.title" class="thumbnail">
-                        </td>
-                        <td>{{ item.id }}</td>
-                        <td>{{ item.title }}</td>                        
-                        <td>
-                            <button nz-button nzType="primary" [nzSize]="'large'" nzShape="round" (click)="editSticker(item.id)">
-                                <nz-icon nzType="edit" nzTheme="outline" />
-                                Edit
-                            </button>
-                            <nz-divider nzType="vertical"></nz-divider>
-                            <app-delete-dialog
-                                [sticker]="item"
-                                (confirm)="deleteSticker($event)">
-                            </app-delete-dialog>
-                        </td>
+                        <th>Thumbnail</th>
+                        <th>Id</th>
+                        <th>Title</th>                
+                        <th></th>
                     </tr>
-                }
-            </tbody>
-        </nz-table>
-    }   
-</div>
+                </thead>
+                <tbody>
+                    @for (item of stickerTable.data; track item.id) {
+                        <tr>
+                            <td>
+                                <img [src]="item.image" [alt]="item.title" [title]="item.title" class="thumbnail">
+                            </td>
+                            <td>{{ item.id }}</td>
+                            <td>{{ item.title }}</td>                        
+                            <td>
+                                <button nz-button nzType="primary" [nzSize]="'large'" nzShape="round" (click)="editSticker(item.id)">
+                                    <nz-icon nzType="edit" nzTheme="outline" />
+                                    Edit
+                                </button>
+                                <nz-divider nzType="vertical"></nz-divider>
+                                <app-delete-dialog
+                                    [sticker]="item"
+                                    (confirm)="deleteSticker($event)">
+                                </app-delete-dialog>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </nz-table>
+        }   
+        <app-to-top />
+    </div>
+</app-spinner>
