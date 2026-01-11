@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
-
 import { StickerService } from './sticker.service';
+import { describe,beforeEach, it, expect } from 'vitest';
 
 describe('StickerService', () => {
   let service: StickerService;

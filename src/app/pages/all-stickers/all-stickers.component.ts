@@ -45,7 +45,7 @@ export class AllStickersComponent extends SharedAfterViewInit implements OnInit 
       src: sticker.image,
       alt: sticker.title
     }
-    this.nzImageService.preview([image], { nzZoom: 1, nzRotate: 0, nzScaleStep: 0.5 });
+    this.nzImageService.preview([image], { nzZoom: 1, nzRotate: 0, nzScaleStep: 0.5, nzNoAnimation: true });
   }
 
 }

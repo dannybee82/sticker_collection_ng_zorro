@@ -1,6 +1,6 @@
 # StickerCollectionNgZorro
 
-An Angular 20 application (with [Angular CLI](https://github.com/angular/angular-cli) version 20.3.7) with NG-ZORRO (An enterprise-class Angular UI component library based on Ant Design).
+An Angular 21 application (with [Angular CLI](https://github.com/angular/angular-cli) version 21.0.5) with NG-ZORRO-ANTD (An enterprise-class Angular UI component library based on Ant Design).
 
 This demo shows a 'Sticker Collection' with hard-coded data:
 
@@ -16,7 +16,7 @@ See the images in the root of this project for examples.
 
 ### **Angular application installation**
 
-**Angular 20** needs a **Node.js** version of at least _20.19.0_
+**Angular 21** needs a **Node.js** version of at least _20.19.0_
 
 **Command to install**
 
@@ -35,6 +35,17 @@ or shorter:
 _ng s --o_
 
 ### **Changelog:**
+
+_January 2026_
+
+\- Added 8 new stickers.
+
+\- Upgrade to _Angular 21_ and upgraded other packages.
+
+*   Removed deprecated _Karma_ and installed _Vitest._
+*   Migrated _Jasmine_ tests to _Vitest_ tests for future use (command: **ng generate refactor-jasmine-vitest**).
+
+\- Minor fix for the image preview, by adding the property: _nzNoAnimation: true_
 
 _November 2025:_
 

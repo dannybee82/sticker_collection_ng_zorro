@@ -79,11 +79,51 @@ export class StickerService {
       id: 14,
       image: 'stickers/sticker_014.jpg',
       title: 'Juliette Wolpertinger'
-    }    
+    },
+    {
+      id: 15,
+      image: 'stickers/sticker_015.jpg',
+      title: 'The Jester Queen'
+    },
+    {
+      id: 16,
+      image: 'stickers/sticker_016.jpg',
+      title: 'The Eye of the Manticore'
+    },
+    {
+      id: 17,
+      image: 'stickers/sticker_017.jpg',
+      title: 'The Celestial Guardian of the Galaxy'
+    },
+    {
+      id: 18,
+      image: 'stickers/sticker_018.jpg',
+      title: 'Youthfull and Mysterious Angel'
+    },
+    {
+      id: 19,
+      image: 'stickers/sticker_019.jpg',
+      title: 'Dorothy in adulthood with her dog Toto'
+    },
+    {
+      id: 20,
+      image: 'stickers/sticker_020.jpg',
+      title: 'The Scarlet Princess'
+    },
+    {
+      id: 21,
+      image: 'stickers/sticker_021.jpg',
+      title: 'Belle in a Gala Dress'
+    },
+    {
+      id: 22,
+      image: 'stickers/sticker_022.jpg',
+      title: 'Lumina the Celestial Weaver'
+    }
   ];
 
   getAllStickers(): Observable<Sticker[]> {
-    return of(this._allStickers).pipe(
+    return of(structuredClone(this._allStickers)).pipe(
       delay(1500)
     );
   }

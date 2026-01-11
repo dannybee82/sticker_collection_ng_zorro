@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { DeleteDialogComponent } from './delete-dialog.component';
+import { describe,beforeEach, it, expect } from 'vitest';
 
 describe('DeleteDialogComponent', () => {
   let component: DeleteDialogComponent;
